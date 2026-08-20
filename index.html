@@ -3,244 +3,646 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codex Sistemas | Inteligência Logística e Tecnologia</title>
-    <style>
-        :root {
-            --primary: #0f172a;
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
-            --text-main: #334155;
-            --text-light: #64748b;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
-        }
 
+    <title>Codex Sistemas — Software que transforma ideias em soluções</title>
+    <meta name="description" content="Codex Sistemas desenvolve aplicativos, sistemas e soluções digitais para empresas e pessoas.">
+
+    <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        :root {
+            --bg: #08090d;
+            --bg-secondary: #101218;
+            --card: #14161d;
+            --border: #242733;
+            --text: #f5f7fa;
+            --muted: #9298a6;
+            --primary: #6c63ff;
+            --primary-light: #8d86ff;
         }
 
         body {
-            color: var(--text-main);
-            background-color: var(--bg-light);
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
         }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+
         header {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
+            position: fixed;
             top: 0;
+            width: 100%;
             z-index: 100;
+            background: rgba(8, 9, 13, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            margin-left: 1.5rem;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
-            color: var(--white);
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
+            font-size: 22px;
+            font-weight: 800;
             letter-spacing: -1px;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
+        .logo span {
+            color: var(--primary-light);
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 6px;
-            text-decoration: none;
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-button {
+            background: var(--primary);
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 14px;
             font-weight: 600;
-            transition: background-color 0.2s;
         }
 
-        .btn:hover {
-            background-color: var(--accent-hover);
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            opacity: 0.12;
+            filter: blur(150px);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+        }
+
+        .badge {
+            display: inline-block;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+            color: var(--primary-light);
+            padding: 7px 14px;
+            border-radius: 50px;
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: clamp(44px, 7vw, 82px);
+            line-height: 1.02;
+            letter-spacing: -4px;
+            margin-bottom: 26px;
+        }
+
+        h1 span {
+            color: var(--primary-light);
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 36px;
+        }
+
+        .button {
+            padding: 14px 24px;
+            border-radius: 9px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .button-primary {
+            background: var(--primary);
+        }
+
+        .button-secondary {
+            border: 1px solid var(--border);
+            background: var(--card);
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 100px 24px;
         }
 
         .container {
             max-width: 1100px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
+            margin: auto;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            color: var(--primary);
-            letter-spacing: -0.5px;
+        .section-header {
+            max-width: 650px;
+            margin-bottom: 50px;
         }
 
-        .grid {
+        .section-header small {
+            color: var(--primary-light);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            line-height: 1.1;
+            margin: 12px 0;
+            letter-spacing: -2px;
+        }
+
+        .section-header p {
+            color: var(--muted);
+        }
+
+        /* SERVICES */
+
+        .services {
+            background: var(--bg-secondary);
+        }
+
+        .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
         }
 
         .card {
-            background: var(--white);
-            padding: 2.5rem 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            transition: transform 0.2s;
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 14px;
+            transition: .25s;
         }
 
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
+            border-color: #3b3f50;
+        }
+
+        .icon {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            background: rgba(108,99,255,.12);
+            color: var(--primary-light);
+            border-radius: 10px;
+            margin-bottom: 22px;
+            font-size: 20px;
         }
 
         .card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
+            margin-bottom: 10px;
         }
 
         .card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+            color: var(--muted);
+            font-size: 14px;
         }
 
-        .quote-section {
-            background-color: var(--white);
-            padding: 4rem 2rem;
+        /* PRODUCTS */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            min-height: 250px;
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: linear-gradient(145deg, #151821, #0d0f14);
+        }
+
+        .product-label {
+            color: var(--primary-light);
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .product h3 {
+            font-size: 28px;
+            margin: 12px 0;
+        }
+
+        .product p {
+            color: var(--muted);
+            max-width: 500px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 42px;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .stat {
+            padding: 30px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 32px;
+            color: var(--primary-light);
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* CTA */
+
+        .cta {
             text-align: center;
-            border-top: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
+            background: var(--bg-secondary);
         }
 
-        .quote-section blockquote {
-            font-size: 1.4rem;
-            font-style: italic;
-            max-width: 700px;
-            margin: 0 auto;
-            color: var(--primary);
+        .cta h2 {
+            font-size: 48px;
+            letter-spacing: -2px;
+            margin-bottom: 15px;
         }
+
+        .cta p {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        /* FOOTER */
 
         footer {
-            background-color: var(--primary);
-            color: var(--text-light);
-            text-align: center;
-            padding: 3rem 2rem;
-            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            padding: 35px 24px;
         }
 
-        footer p {
-            margin-bottom: 0.5rem;
+        .footer-content {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            color: var(--muted);
+            font-size: 13px;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            nav {
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+            .nav-links {
                 display: none;
+            }
+
+            .service-grid,
+            .products,
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section-header h2,
+            .about h2 {
+                font-size: 34px;
+            }
+
+            .cta h2 {
+                font-size: 36px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">Codex<span>Sistemas</span></div>
-        <nav>
-            <a href="#sobre">Sobre</a>
-            <a href="#solucoes">Soluções</a>
-            <a href="#contato">Contato</a>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <a href="#" class="logo">Codex<span>.</span></a>
+
+        <div class="nav-links">
+            <a href="#servicos">Serviços</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#empresa">Empresa</a>
+        </div>
+
+        <a href="#contato" class="nav-button">Fale conosco</a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- HERO -->
 
     <section class="hero">
-        <h1>Transformamos a complexidade operacional em eficiência digital.</h1>
-        <p>Desenvolvemos sistemas inteligentes, rastreamento em tempo real e soluções sob medida para impulsionar a sua logística e o seu negócio.</p>
-        <a href="#contato" class="btn">Fale Conosco</a>
+        <div class="hero-content">
+
+            <div class="badge">
+                CODEx SISTEMAS
+            </div>
+
+            <h1>
+                Tecnologia para transformar <span>ideias</span> em realidade.
+            </h1>
+
+            <p>
+                Desenvolvemos aplicativos, sistemas e soluções digitais
+                pensados para resolver problemas reais e criar novas
+                oportunidades.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#produtos" class="button button-primary">
+                    Conheça nossos projetos
+                </a>
+
+                <a href="#contato" class="button button-secondary">
+                    Criar uma solução
+                </a>
+            </div>
+
+        </div>
     </section>
 
-    <div class="container" id="solucoes">
-        <h2 class="section-title">O Que Nós Fazemos</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Softwares de Logística</h3>
-                <p>Plataformas completas para gestão de frotas, controle de entregas e monitoramento de equipes externas em tempo real.</p>
-            </div>
-            <div class="card">
-                <h3>Aplicações Web (PWA)</h3>
-                <p>Sistemas rápidos, leves e modernos que rodam direto no navegador do celular ou computador, sem burocracia de lojas de aplicativos.</p>
-            </div>
-            <div class="card">
-                <h3>Automação B2B</h3>
-                <p>Substituição de processos manuais e planilhas confusas por ferramentas automatizadas, seguras e focadas no ganho de produtividade.</p>
-            </div>
-        </div>
-    </div>
 
-    <section class="quote-section">
-        <blockquote>"Não criamos apenas códigos; construímos ferramentas práticas para quem bota a mão na massa."</blockquote>
+    <!-- SERVIÇOS -->
+
+    <section class="services" id="servicos">
+
+        <div class="container">
+
+            <div class="section-header">
+                <small>O que fazemos</small>
+                <h2>Software para diferentes necessidades.</h2>
+                <p>
+                    A Codex Sistemas cria produtos próprios e também
+                    desenvolve soluções personalizadas.
+                </p>
+            </div>
+
+            <div class="service-grid">
+
+                <div class="card">
+                    <div class="icon">⌘</div>
+                    <h3>Aplicativos</h3>
+                    <p>
+                        Aplicativos mobile e web desenvolvidos para
+                        oferecer experiências simples e eficientes.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">◈</div>
+                    <h3>Sistemas</h3>
+                    <p>
+                        Sistemas personalizados para automatizar processos
+                        e melhorar a gestão de negócios.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">◇</div>
+                    <h3>Soluções digitais</h3>
+                    <p>
+                        Ferramentas e plataformas digitais criadas para
+                        transformar ideias em produtos reais.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
-    <div class="container" id="sobre">
-        <h2 class="section-title">Por Que Escolher a Codex?</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Foco na Praticidade</h3>
-                <p>Interfaces limpas e diretas ao ponto, pensadas para quem precisa de agilidade na operação diária sem perder tempo.</p>
+
+    <!-- PRODUTOS -->
+
+    <section id="produtos">
+
+        <div class="container">
+
+            <div class="section-header">
+                <small>Nossos produtos</small>
+                <h2>Construímos nossas próprias ideias.</h2>
+                <p>
+                    A Codex não é apenas uma software house.
+                    Também desenvolvemos produtos próprios.
+                </p>
             </div>
-            <div class="card">
-                <h3>Custo-Benefício</h3>
-                <p>Arquiteturas inteligentes que garantem altíssima performance e estabilidade com baixo custo de infraestrutura.</p>
+
+            <div class="products">
+
+                <div class="product">
+                    <span class="product-label">Produto</span>
+                    <h3>PetLove</h3>
+                    <p>
+                        Uma plataforma digital voltada para o universo
+                        dos animais de estimação.
+                    </p>
+                </div>
+
+                <div class="product">
+                    <span class="product-label">Em desenvolvimento</span>
+                    <h3>Novos projetos</h3>
+                    <p>
+                        Novas aplicações e produtos digitais estão sendo
+                        desenvolvidos pela Codex Sistemas.
+                    </p>
+                </div>
+
             </div>
-            <div class="card">
-                <h3>Parceria Estratégica</h3>
-                <p>Acompanhamos a evolução da sua empresa, ajustando e escalando o sistema conforme o seu volume de operações cresce.</p>
-            </div>
+
         </div>
+
+    </section>
+
+
+    <!-- EMPRESA -->
+
+    <section id="empresa">
+
+        <div class="container">
+
+            <div class="about">
+
+                <div>
+                    <h2>
+                        Uma empresa criada para construir o futuro digital.
+                    </h2>
+
+                    <p>
+                        A Codex Sistemas nasceu com o objetivo de transformar
+                        ideias em software.
+                    </p>
+
+                    <p>
+                        Criamos produtos próprios, ferramentas e sistemas
+                        utilizando tecnologia para simplificar problemas
+                        e criar novas possibilidades.
+                    </p>
+
+                    <p>
+                        Cada projeto começa com uma ideia e evolui através
+                        de tecnologia, desenvolvimento e aprendizado.
+                    </p>
+                </div>
+
+                <div class="stats">
+
+                    <div class="stat">
+                        <strong>01</strong>
+                        <span>Ideia</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>02</strong>
+                        <span>Desenvolvimento</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>03</strong>
+                        <span>Produto</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>∞</strong>
+                        <span>Possibilidades</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta" id="contato">
+
+        <div class="container">
+
+            <h2>Tem uma ideia?</h2>
+
+            <p>
+                Vamos transformar sua ideia em um produto digital.
+            </p>
+
+            <a href="mailto:contato@codexsistemas.com.br"
+               class="button button-primary">
+                Entre em contato
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-content">
+
+        <span>© 2026 Codex Sistemas</span>
+
+        <span>Software • Tecnologia • Inovação</span>
+
     </div>
 
-    <footer id="contato">
-        <p><strong>Codex Sistemas</strong> - Toledo, PR</p>
-        <p>Vamos tirar sua ideia do papel? Entre em contato e fale com nossos desenvolvedores.</p>
-        <p style="margin-top: 1.5rem; color: var(--white);">&copy; 2026 Codex Sistemas. Todos os direitos reservados.</p>
-    </footer>
+</footer>
 
 </body>
 </html>
